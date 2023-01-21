@@ -1,0 +1,4 @@
+interface PlatformAnime {
+  id: ID!
+  anime: Anime!
+}

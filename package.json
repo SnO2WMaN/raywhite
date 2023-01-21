@@ -8,7 +8,7 @@
     "dev": "run-p 'dev:*'",
     "dev:build": "pnpm run build --watch",
     "dev:nodemon": "nodemon -w dist/index.js dist/index.js",
-    "dev:codegen": "pnpm run codegen --watch",
+    "dev:codegen": "pnpm run codegen --watch=**/*.{ts,graphql,gql}",
     "codegen": "graphql-codegen-esm",
     "build": "tsup"
   },

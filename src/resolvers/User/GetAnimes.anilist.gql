@@ -4,6 +4,7 @@ query GetAnimes($name: String!, $status: MediaListStatus!) {
       entries {
         status
         media {
+          id
           idMal
         }
       }

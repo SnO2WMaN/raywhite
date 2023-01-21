@@ -3,7 +3,7 @@ type User {
   platform: Platform!
   name: String!
 
-  animes(input: UserAnimesInput!): [Anime!]!
+  animes(input: UserAnimesInput!): [PlatformAnime!]!
 }
 
 input UserAnimesInput {

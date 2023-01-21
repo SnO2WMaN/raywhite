@@ -1,0 +1,5 @@
+type AnilistAnime implements PlatformAnime {
+  id: ID!
+
+  anime: Anime!
+}

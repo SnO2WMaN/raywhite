@@ -1,6 +1,7 @@
 import { GraphQLError } from "graphql";
 
 import { Platform, UserResolvers } from "../../graphql.js";
+import { getAnimesFromAnilist } from "./GetAnimesFromAnilist.js";
 
 export const resolveUser = () =>
   ({
@@ -21,19 +22,17 @@ export const resolveUser = () =>
       return name;
     },
 
-    /*
     animes: ({ platform, name }, { input }) => {
       if (!platform) throw new GraphQLError("Cannot parse id to platform");
       if (!name) throw new GraphQLError("Cannot parse id to platform");
 
       switch (platform) {
         case "anilist": {
-          if (input.status) return getFromStatus(name, input.status);
+          if (input.status) return getAnimesFromAnilist(name, input.status);
           throw new GraphQLError("Cannot parse id to platform");
         }
         default:
-          throw new GraphQLError("Cannot parse id to platform");
+          throw new GraphQLError("Unsupported");
       }
     },
-    */
   } satisfies UserResolvers);
