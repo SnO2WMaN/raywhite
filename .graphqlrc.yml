@@ -7,7 +7,12 @@ projects:
     schema: "https://graphql.anilist.co"
     documents:
       - src/**/*.anilist.gql
+      - src/**/*.anilist.ts
   annict:
-    schema: "https://api.annict.com/graphql"
+    schema:
+      - "https://api.annict.com/graphql":
+          headers:
+            Authorization: "Bearer ${ANNICT_TOKEN}"
     documents:
       - src/**/*.annict.gql
+      - src/**/*.annict.ts
