@@ -1,0 +1,10 @@
+.direnv
+
+dist/
+
+# migrations
+src/db/migrations/
+
+# codegen
+src/graphql.ts
+src/schema.graphql

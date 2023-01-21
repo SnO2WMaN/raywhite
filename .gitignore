@@ -1,0 +1,22 @@
+# Nix
+.direnv
+result
+
+# env
+.env
+
+# VSCode
+.vscode/settings.json
+
+# npm
+node_modules
+
+# log
+*.log
+
+# codegen
+src/graphql.ts
+src/schema.graphql
+
+# tsc
+dist/

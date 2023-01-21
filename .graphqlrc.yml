@@ -1,0 +1,9 @@
+projects:
+  anilist:
+    schema: "https://graphql.anilist.co"
+    documents:
+      - src/**/*.anilist.graphql
+  annict:
+    schema: "https://api.annict.com/graphql"
+    documents:
+      - src/**/*.annict.graphql

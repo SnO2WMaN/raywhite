@@ -1,0 +1,19 @@
+# codegen.yml
+generates:
+  ./src/schema.graphql:
+    schema:
+      - ./src/resolvers/**/*.graphql
+    plugins:
+      - schema-ast
+  ./src/graphql.ts:
+    schema:
+      - ./src/resolvers/**/*.graphql
+    config:
+      contextType: ./context.js#Context
+      makeResolverTypeCallable: true
+      mappers:
+        User: ./resolvers/User/model.js#UserModel
+    plugins:
+      - typescript
+      - typescript-resolvers
+      - "./codegen-plugins/typedefs.mjs"
