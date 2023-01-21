@@ -1,0 +1,7 @@
+type AnilistUser implements PlatformUser {
+  id: ID!
+  platform: Platform!
+  animes(input: PlatformUserAnimesInput!): [PlatformAnime!]!
+
+  name: String!
+}

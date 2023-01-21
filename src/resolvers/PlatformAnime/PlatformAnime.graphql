@@ -1,4 +1,5 @@
 interface PlatformAnime {
   id: ID!
+  malId: Int!
   anime: Anime!
 }

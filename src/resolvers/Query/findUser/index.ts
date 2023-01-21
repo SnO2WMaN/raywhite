@@ -1,7 +1,7 @@
 import { GraphQLError } from "graphql";
 
-import { Platform, QueryResolvers } from "../../../graphql.js";
-import { UserModel } from "../../User/model.js";
+import { Platform, QueryResolvers } from "../../../graphql/raywhite/index.js";
+import { findUserFromNameFromAnilist } from "./findUserByName.anilist.js";
 
 export const findUser = (async (
   _parent,
@@ -12,11 +12,9 @@ export const findUser = (async (
   }
 ) => {
   switch (platform) {
-    case Platform.Annict:
-      return new UserModel({ id: `annict:${name}` });
     case Platform.Anilist:
-      return new UserModel({ id: `anilist:${name}` });
+      return findUserFromNameFromAnilist(name);
     default:
-      throw new GraphQLError("Invalid input");
+      throw new GraphQLError("Not supported");
   }
 }) satisfies QueryResolvers["findUser"];

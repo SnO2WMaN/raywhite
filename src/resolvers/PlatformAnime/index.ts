@@ -1,4 +1,4 @@
-import { PlatformAnimeResolvers } from "../../graphql.js";
+import { PlatformAnimeResolvers } from "../../graphql/raywhite/index.js";
 
 export const resolvePlatformAnime = () =>
   ({

@@ -1,12 +1,16 @@
 export class AnilistAnimeModel {
   constructor(
     private readonly entity: {
-      id: number;
-      idMal: number;
+      anilistId: number;
+      malId: number;
     }
   ) {}
 
-  get id() {
-    return this.entity.id;
+  get anilistId() {
+    return this.entity.anilistId;
+  }
+
+  get malId() {
+    return this.entity.anilistId;
   }
 }

@@ -1,5 +1,5 @@
 type Query {
-  findUser(input: FindUserInput!): User
+  findUser(input: FindUserInput!): PlatformUser
 }
 
 enum Platform {
@@ -8,10 +8,10 @@ enum Platform {
 }
 
 input FindUserInput {
-  user: PlatformUser!
+  user: FindUserInputUser!
 }
 
-input PlatformUser {
+input FindUserInputUser {
   platform: Platform!
   name: String!
 }

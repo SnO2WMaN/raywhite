@@ -6,7 +6,7 @@ import { resolvers as makeResolvers } from "./resolvers/index.js";
 
 const app = fastify({
   logger: {
-    enabled: false,
+    enabled: true,
     transport: {
       target: "pino-pretty",
     },

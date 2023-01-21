@@ -1,4 +1,4 @@
-import { QueryResolvers } from "../../graphql.js";
+import { QueryResolvers } from "../../graphql/raywhite/index.js";
 import { findUser } from "./findUser/index.js";
 
 export const resolveQuery = () =>

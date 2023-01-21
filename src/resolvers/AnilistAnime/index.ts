@@ -1,8 +1,8 @@
-import { AnilistAnimeResolvers } from "../../graphql.js";
+import { AnilistAnimeResolvers } from "../../graphql/raywhite/index.js";
 
 export const resolveAnilistAnime = () =>
   ({
-    id: ({ id }) => {
-      return `AnilistAnime:${id}`;
+    id: ({ anilistId }) => {
+      return `AnilistAnime:${anilistId}`;
     },
   } satisfies AnilistAnimeResolvers);

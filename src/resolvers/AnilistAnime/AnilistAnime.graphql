@@ -1,5 +1,7 @@
 type AnilistAnime implements PlatformAnime {
   id: ID!
-
+  malId: Int!
   anime: Anime!
+
+  anilistId: Int!
 }

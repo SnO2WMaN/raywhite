@@ -1,7 +1,7 @@
 import { GraphQLError } from "graphql";
 
-import { MediaListStatus } from "../anilist.js";
-import { AnimeStatus } from "../graphql.js";
+import { MediaListStatus } from "../graphql/anilist/graphql.js";
+import { AnimeStatus } from "../graphql/raywhite/index.js";
 
 export const convertToAnilistStatus = (status: AnimeStatus): MediaListStatus => {
   switch (status) {

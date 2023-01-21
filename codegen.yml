@@ -14,9 +14,10 @@ generates:
       contextType: ../../resolvers/context.js#Context
       makeResolverTypeCallable: true
       mappers:
-        User: ../../resolvers/User/model.js#UserModel
         Anime: ../../resolvers/Anime/model.js#AnimeModel
         AnilistAnime: ../../resolvers/AnilistAnime/model.js#AnilistAnimeModel
+        PlatformUser: ../../resolvers/PlatformUser/model.js#PlatformUserModel
+        AnilistUser: ../../resolvers/AnilistUser/model.js#AnilistUserModel
     plugins:
       - typescript
       - typescript-resolvers
