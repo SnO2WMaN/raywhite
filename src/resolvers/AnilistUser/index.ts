@@ -10,7 +10,7 @@ export const resolveAnilistUser = () =>
 
     platform: () => Platform.Anilist,
 
-    animes: ({ internalId }, { input }) => {
+    watchstatuses: ({ internalId }, { input }) => {
       return getAnimesFromAnilist(internalId, input.status);
     },
   } satisfies AnilistUserResolvers);

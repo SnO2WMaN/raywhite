@@ -1,6 +1,6 @@
-import { PlatformUserModel } from "../PlatformUser/model.js";
+import { UserModel } from "../User/model.js";
 
-export class AnilistUserModel extends PlatformUserModel {
+export class AnilistUserModel extends UserModel {
   constructor(private readonly entity: { id: number }) {
     super();
   }

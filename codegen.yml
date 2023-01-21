@@ -15,9 +15,11 @@ generates:
       makeResolverTypeCallable: true
       mappers:
         Anime: ../../resolvers/Anime/model.js#AnimeModel
+        User: ../../resolvers/User/model.js#UserModel
+        Watchstatus: ../../resolvers/Watchstatus/model.js#WatchstatusModel
         AnilistAnime: ../../resolvers/AnilistAnime/model.js#AnilistAnimeModel
-        PlatformUser: ../../resolvers/PlatformUser/model.js#PlatformUserModel
         AnilistUser: ../../resolvers/AnilistUser/model.js#AnilistUserModel
+        AnilistWatchstatus: ../../resolvers/AnilistWatchstatus/model.js#AnilistWatchstatusModel
     plugins:
       - typescript
       - typescript-resolvers

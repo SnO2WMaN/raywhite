@@ -5,7 +5,7 @@ import * as z from "zod";
 import { graphql } from "../../graphql/anilist/gql.js";
 import { AnimeStatus } from "../../graphql/raywhite/index.js";
 import { convertToAnilistStatus } from "../../utils/anilist.js";
-import { AnilistAnimeModel } from "../AnilistAnime/model.js";
+import { AnilistWatchstatusModel } from "../AnilistWatchstatus/model.js";
 
 const schema = z.object({
   MediaListCollection: z.object({
@@ -13,9 +13,9 @@ const schema = z.object({
       z.object({
         entries: z.array(
           z.object({
+            userId: z.number(),
             media: z.object({
               id: z.number(),
-              idMal: z.number(),
             }),
           })
         ),
@@ -30,14 +30,14 @@ export const getAnimesFromAnilist = async (id: number, status: AnimeStatus) => {
   const data = await gqlRequest(
     "https://graphql.anilist.co",
     graphql(`
-      query GetAnimes($userId: Int!, $status: MediaListStatus!) {
+      query GetWatchstatuses($userId: Int!, $status: MediaListStatus!) {
         MediaListCollection(type: ANIME, userId: $userId, status: $status) {
           lists {
             entries {
+              userId
               status
               media {
                 id
-                idMal
               }
             }
           }
@@ -60,8 +60,14 @@ export const getAnimesFromAnilist = async (id: number, status: AnimeStatus) => {
   return lists.reduce(
     (prev, { entries }) => [
       ...prev,
-      ...entries.map(({ media }) => new AnilistAnimeModel({ anilistId: media.id, malId: media.idMal })),
+      ...entries.map(
+        ({ userId, media }) =>
+          new AnilistWatchstatusModel({
+            userAnilistId: userId,
+            animeAnilistId: media.id,
+          })
+      ),
     ],
-    [] as AnilistAnimeModel[]
+    [] as AnilistWatchstatusModel[]
   );
 };

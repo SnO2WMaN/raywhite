@@ -1,9 +1,0 @@
-interface PlatformUser {
-  id: ID!
-  platform: Platform!
-  animes(input: PlatformUserAnimesInput!): [PlatformAnime!]!
-}
-
-input PlatformUserAnimesInput {
-  status: AnimeStatus!
-}

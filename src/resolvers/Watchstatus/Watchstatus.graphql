@@ -1,0 +1,5 @@
+interface Watchstatus {
+  id: ID!
+  status: AnimeStatus!
+  anime: PlatformAnime!
+}

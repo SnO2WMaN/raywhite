@@ -1,7 +1,10 @@
-type AnilistUser implements User {
+interface User {
   id: ID!
   platform: Platform!
-  watchstatuses(input: UserWatchstatusesInput!): [Watchstatus!]!
 
-  name: String!
+  watchstatuses(input: UserWatchstatusesInput!): [Watchstatus!]!
+}
+
+input UserWatchstatusesInput {
+  status: AnimeStatus!
 }
