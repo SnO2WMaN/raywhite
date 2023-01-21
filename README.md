@@ -16,4 +16,4 @@ _TODO:_
 
 ## License
 
-![世界最強の魔術師である少年は、演習を開始する](./assets/hyoken_dash.gif)
+[![世界最強の魔術師である少年は、演習を開始する](./assets/hyoken_dash.gif)](https://github.com/SnO2WMaN/raywhite/blob/main/LICENSE)
