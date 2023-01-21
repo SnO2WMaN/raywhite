@@ -1,7 +1,7 @@
 import { fastify, FastifyReply, FastifyRequest } from "fastify";
 import { createSchema, createYoga } from "graphql-yoga";
 
-import { typeDefs } from "./graphql.js";
+import { typeDefs } from "./graphql/raywhite/index.js";
 import { resolvers as makeResolvers } from "./resolvers/index.js";
 
 const app = fastify({

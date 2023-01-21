@@ -1,6 +1,6 @@
 projects:
   raywhite:
-    schema: ./src/schema.graphql
+    schema: ./src/graphql/raywhite/schema.graphql
     documents:
       - src/**/*.graphql
   anilist:

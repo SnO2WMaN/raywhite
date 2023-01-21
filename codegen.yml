@@ -1,15 +1,17 @@
 # codegen.yml
+emitLegacyCommonJSImports: false
+
 generates:
-  ./src/schema.graphql:
+  ./src/graphql/raywhite/schema.graphql:
     schema:
       - ./src/resolvers/**/*.graphql
     plugins:
       - schema-ast
-  ./src/graphql.ts:
+  ./src/graphql/raywhite/index.ts:
     schema:
       - ./src/resolvers/**/*.graphql
     config:
-      contextType: ./context.js#Context
+      contextType: ./resolvers/context.js#Context
       makeResolverTypeCallable: true
       mappers:
         User: ./resolvers/User/model.js#UserModel
@@ -20,24 +22,18 @@ generates:
       - typescript-resolvers
       - "./codegen-plugins/typedefs.mjs"
 
-  ./src/anilist.ts:
+  ./src/graphql/anilist/:
     schema:
       - https://graphql.anilist.co
     documents:
       - ./src/**/*.anilist.gql
-    plugins:
-      - typescript
-      - typescript-operations
-      - typescript-graphql-request
+    preset: client
 
-  ./src/annict.ts:
+  ./src/graphql/annict/:
     schema:
       - "https://api.annict.com/graphql":
           headers:
             Authorization: "Bearer ${ANNICT_TOKEN}"
     documents:
       - ./src/**/*.annict.gql
-    plugins:
-      - typescript
-      - typescript-operations
-      - typescript-graphql-request
+    preset: client
