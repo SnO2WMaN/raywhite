@@ -1,5 +1,5 @@
 type AnilistWatchstatus implements Watchstatus {
   id: ID!
-  status: AnimeStatus!
-  anime: PlatformAnime!
+  status: WatchingStatus!
+  anime: AnilistAnime!
 }

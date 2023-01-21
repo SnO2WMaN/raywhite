@@ -1,19 +1,19 @@
 import { GraphQLError } from "graphql";
 
 import { MediaListStatus } from "../graphql/anilist/graphql.js";
-import { AnimeStatus } from "../graphql/raywhite/index.js";
+import { WatchingStatus } from "../graphql/raywhite/index.js";
 
-export const convertToAnilistStatus = (status: AnimeStatus): MediaListStatus => {
+export const convertToAnilistStatus = (status: WatchingStatus): MediaListStatus => {
   switch (status) {
-    case AnimeStatus.Completed:
+    case WatchingStatus.Completed:
       return MediaListStatus.Completed;
-    case AnimeStatus.Watching:
+    case WatchingStatus.Watching:
       return MediaListStatus.Current;
-    case AnimeStatus.Dropped:
+    case WatchingStatus.Dropped:
       return MediaListStatus.Dropped;
-    case AnimeStatus.Planning:
+    case WatchingStatus.Planning:
       return MediaListStatus.Planning;
-    case AnimeStatus.Paused:
+    case WatchingStatus.Paused:
       return MediaListStatus.Paused;
     default:
       throw new GraphQLError("Error");

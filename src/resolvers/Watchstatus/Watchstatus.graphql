@@ -1,5 +1,13 @@
 interface Watchstatus {
   id: ID!
-  status: AnimeStatus!
-  anime: PlatformAnime!
+  status: WatchingStatus!
+  anime: Anime!
+}
+
+enum WatchingStatus {
+  WATCHING
+  COMPLETED
+  PAUSED
+  DROPPED
+  PLANNING
 }

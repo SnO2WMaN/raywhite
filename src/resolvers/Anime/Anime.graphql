@@ -1,11 +1,4 @@
-type Anime {
+interface Anime {
   id: ID!
-}
-
-enum AnimeStatus {
-  WATCHING
-  COMPLETED
-  PAUSED
-  DROPPED
-  PLANNING
+  malId: Int!
 }

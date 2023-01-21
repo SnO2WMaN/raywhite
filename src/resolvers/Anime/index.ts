@@ -1,3 +1,8 @@
-import { AnimeResolvers } from "../../graphql.js";
+import { AnimeResolvers } from "../../graphql/raywhite/index.js";
 
-export const resolveAnime = () => ({} satisfies AnimeResolvers);
+export const resolveAnime = () =>
+  ({
+    __resolveType() {
+      return "AnilistAnime";
+    },
+  } satisfies AnimeResolvers);

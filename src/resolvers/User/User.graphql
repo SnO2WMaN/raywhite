@@ -6,5 +6,5 @@ interface User {
 }
 
 input UserWatchstatusesInput {
-  status: AnimeStatus!
+  status: WatchingStatus!
 }
