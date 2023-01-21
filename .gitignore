@@ -16,6 +16,8 @@ node_modules
 
 # codegen
 src/graphql.ts
+src/anilist.ts
+src/annict.ts
 src/schema.graphql
 
 # tsc

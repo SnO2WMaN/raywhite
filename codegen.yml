@@ -13,7 +13,30 @@ generates:
       makeResolverTypeCallable: true
       mappers:
         User: ./resolvers/User/model.js#UserModel
+        Anime: ./resolvers/Anime/model.js#AnimeModel
     plugins:
       - typescript
       - typescript-resolvers
       - "./codegen-plugins/typedefs.mjs"
+
+  ./src/anilist.ts:
+    schema:
+      - https://graphql.anilist.co
+    documents:
+      - ./src/**/*.anilist.gql
+    plugins:
+      - typescript
+      - typescript-operations
+      - typescript-graphql-request
+
+  ./src/annict.ts:
+    schema:
+      - "https://api.annict.com/graphql":
+          headers:
+            Authorization: "Bearer ${ANNICT_TOKEN}"
+    documents:
+      - ./src/**/*.annict.gql
+    plugins:
+      - typescript
+      - typescript-operations
+      - typescript-graphql-request

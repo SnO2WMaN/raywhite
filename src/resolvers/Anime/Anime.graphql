@@ -1,0 +1,11 @@
+type Anime {
+  id: ID!
+}
+
+enum AnimeStatus {
+  WATCHING
+  COMPLETED
+  PAUSED
+  DROPPED
+  PLANNING
+}

@@ -1,0 +1,17 @@
+type Query {
+  findUser(input: FindUserInput!): User
+}
+
+enum Platform {
+  ANILIST
+  ANNICT
+}
+
+input FindUserInput {
+  user: PlatformUser!
+}
+
+input PlatformUser {
+  platform: Platform!
+  name: String!
+}

@@ -1,0 +1,11 @@
+type User {
+  id: ID!
+  platform: Platform!
+  name: String!
+
+  animes(input: UserAnimesInput!): [Anime!]!
+}
+
+input UserAnimesInput {
+  status: AnimeStatus
+}

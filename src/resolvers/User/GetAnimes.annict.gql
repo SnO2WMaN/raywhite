@@ -1,0 +1,9 @@
+query GetWatchingAnimes($name: String!) {
+  user(username: $name) {
+    works(state: WATCHING) {
+      nodes {
+        malAnimeId
+      }
+    }
+  }
+}
