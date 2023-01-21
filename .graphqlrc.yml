@@ -1,9 +1,13 @@
 projects:
+  raywhite:
+    schema: ./src/schema.graphql
+    documents:
+      - src/**/*.graphql
   anilist:
     schema: "https://graphql.anilist.co"
     documents:
-      - src/**/*.anilist.graphql
+      - src/**/*.anilist.gql
   annict:
     schema: "https://api.annict.com/graphql"
     documents:
-      - src/**/*.annict.graphql
+      - src/**/*.annict.gql
