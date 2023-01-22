@@ -19,7 +19,7 @@ export const resolvers = ({ redis }: ResolverInjections) =>
     Anime: resolveAnime(),
     AnilistAnime: resolveAnilistAnime(),
     User: resolveUser(),
-    AnilistUser: resolveAnilistUser(),
+    AnilistUser: resolveAnilistUser({ redis }),
     Watchstatus: resolveWatchstatus(),
     AnilistWatchstatus: resolveAnilistWatchstatus({ redis }),
   } satisfies Resolvers);
