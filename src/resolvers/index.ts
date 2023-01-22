@@ -1,3 +1,5 @@
+import RedisModule from "ioredis";
+
 import { type Resolvers } from "../graphql/raywhite";
 import { resolveAnilistAnime } from "./AnilistAnime/index.js";
 import { resolveAnilistUser } from "./AnilistUser/index.js";
@@ -7,7 +9,11 @@ import { resolveQuery } from "./Query/index.js";
 import { resolveUser } from "./User/index.js";
 import { resolveWatchstatus } from "./Watchstatus/index.js";
 
-export const resolvers = () =>
+export type ResolverInjections = {
+  redis: RedisModule.Redis;
+};
+
+export const resolvers = ({ redis }: ResolverInjections) =>
   ({
     Query: resolveQuery(),
     Anime: resolveAnime(),
@@ -15,5 +21,5 @@ export const resolvers = () =>
     User: resolveUser(),
     AnilistUser: resolveAnilistUser(),
     Watchstatus: resolveWatchstatus(),
-    AnilistWatchstatus: resolveAnilistWatchstatus(),
+    AnilistWatchstatus: resolveAnilistWatchstatus({ redis }),
   } satisfies Resolvers);

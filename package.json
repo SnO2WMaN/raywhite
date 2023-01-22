@@ -19,6 +19,7 @@
     "graphql-request": "^5.1.0",
     "graphql-tag": "^2.12.6",
     "graphql-yoga": "^3.3.0",
+    "ioredis": "^5.2.5",
     "pino-pretty": "^9.1.1",
     "zod": "^3.20.2"
   },

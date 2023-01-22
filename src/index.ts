@@ -1,8 +1,11 @@
 import { fastify, FastifyReply, FastifyRequest } from "fastify";
 import { createSchema, createYoga } from "graphql-yoga";
+import RedisModule from "ioredis";
 
 import { typeDefs } from "./graphql/raywhite/index.js";
-import { resolvers as makeResolvers } from "./resolvers/index.js";
+import { ResolverInjections, resolvers as makeResolvers } from "./resolvers/index.js";
+
+const redisClient = new RedisModule.default(process.env.REDIS_URL);
 
 const app = fastify({
   logger: {
@@ -17,7 +20,7 @@ const app = fastify({
 const yoga = createYoga<{ req: FastifyRequest; reply: FastifyReply }>({
   schema: createSchema<{ req: FastifyRequest; reply: FastifyReply }>({
     typeDefs,
-    resolvers: makeResolvers(),
+    resolvers: makeResolvers({ redis: redisClient } satisfies ResolverInjections),
   }),
   logging: {
     debug: (...args) => args.forEach((arg) => app.log.debug(arg)),
